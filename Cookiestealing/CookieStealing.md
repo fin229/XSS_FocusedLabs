@@ -57,7 +57,7 @@ This lab demonstrates how a **stored cross-site scripting (XSS)** vulnerability 
 
 ## 5. Stealth Considerations
 
-* The PoC stores the cookie in a visible comment (loud).
+* The initial proof-of-concept exposed the cookie in a visible comment, which is not stealthy.
 * Stealthier options include:
 
   * Use `display:none` to hide the stolen data.
