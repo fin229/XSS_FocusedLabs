@@ -37,7 +37,7 @@ This lab demonstrates how a **stored cross-site scripting (XSS)** vulnerability 
     })
 </script>
 ```
-**Screenshot suggestion:**
+**Screenshot**
 
 ![Injected payload in the comment form.](Images/Payload.png)
 ![Network tab showing the forged POST request.](Images/NetworkTab.png)
